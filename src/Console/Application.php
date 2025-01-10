@@ -23,6 +23,7 @@ class Application extends SymfonyApplication
 {
     public const NAME = 'castor';
     public const VERSION = 'v0.22.0';
+    public const SHOW_LOGO = true;
 
     private Command $command;
 
@@ -62,7 +63,11 @@ class Application extends SymfonyApplication
 
     public function getHelp(): string
     {
-        return $this->getLogo() . parent::getHelp();
+        if (self::SHOW_LOGO) {
+            return $this->getLogo() . parent::getHelp();
+        }
+
+        return parent::getHelp();
     }
 
     public function renderThrowable(\Throwable $e, OutputInterface $output): void
