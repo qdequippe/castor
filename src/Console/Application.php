@@ -63,6 +63,8 @@ class Application extends SymfonyApplication
 
     public function getHelp(): string
     {
+        var_dump(self::HIDE_LOGO);
+        
         if (false === (bool) self::HIDE_LOGO) {
             return $this->getLogo() . parent::getHelp();
         }
