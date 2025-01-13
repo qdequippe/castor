@@ -90,9 +90,6 @@ class RepackCommand extends Command
             ApplicationFactory::create()->run();
             PHP;
 
-        var_dump($main);
-        exit;
-
         $boxConfig = json_decode((string) file_get_contents($boxConfigFile), true, 512, \JSON_THROW_ON_ERROR);
         $boxConfig['base-path'] = '.';
         $boxConfig['main'] = '.main.php';
