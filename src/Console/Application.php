@@ -23,7 +23,7 @@ class Application extends SymfonyApplication
 {
     public const NAME = 'castor';
     public const VERSION = 'v0.22.0';
-    public const HIDE_LOGO = false;
+    public const HIDE_LOGO = 0;
 
     private Command $command;
 
@@ -63,7 +63,7 @@ class Application extends SymfonyApplication
 
     public function getHelp(): string
     {
-        if (false === self::HIDE_LOGO) {
+        if (false === (bool) self::HIDE_LOGO) {
             return $this->getLogo() . parent::getHelp();
         }
 

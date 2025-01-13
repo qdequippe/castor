@@ -69,7 +69,7 @@ class RepackCommand extends Command
 
         $appName = $input->getOption('app-name');
         $appVersion = $input->getOption('app-version');
-        $hideLogo = (bool) $input->getOption('hide-logo');
+        $hideLogo = (int) $input->getOption('hide-logo');
         $alias = 'alias.phar';
         $main = <<<PHP
             <?php
@@ -89,7 +89,7 @@ class RepackCommand extends Command
 
             ApplicationFactory::create()->run();
             PHP;
-
+        
         $boxConfig = json_decode((string) file_get_contents($boxConfigFile), true, 512, \JSON_THROW_ON_ERROR);
         $boxConfig['base-path'] = '.';
         $boxConfig['main'] = '.main.php';
